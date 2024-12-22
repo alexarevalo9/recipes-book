@@ -1,0 +1,21 @@
+{
+  "@@locale": "en",
+  "title": "Recipes Book",
+  "home": "Home",
+  "favorites": "Favorites",
+  "steps": "Steps",
+  "by": "By",
+  "noRecipesFound": "No recipes found",
+  "noFavoritesFound": "No favorite recipes found",
+  "addNewRecipe": "Add new recipe",
+  "form_title": "Title",
+  "form_title_hint": "Enter the title of the recipe",
+  "form_title_error": "Please enter the title of the recipe",
+  "form_author": "Author",
+  "form_author_hint": "Enter the author of the recipe",
+  "form_image": "Image URL",
+  "form_image_hint": "Enter the URL of the image",
+  "form_ingredients": "Ingredients",
+  "form_ingredients_hint": "Enter the ingredients of the recipe",
+  "form_submit": "Submit"
+}

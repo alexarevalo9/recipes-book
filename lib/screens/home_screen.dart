@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:recipe_book/models/recipe_model.dart';
 import 'package:recipe_book/providers/recipes_provider.dart';
 import 'package:recipe_book/screens/recipe_detail.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+    final ln10 = AppLocalizations.of(context);
     return Scaffold(
       body: Consumer<RecipesProvider>(builder: (context, provider, child) {
         if (provider.isLoading) {
@@ -34,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen>
         final recipes = provider.recipes;
 
         if (recipes.isEmpty) {
-          return const Center(
-            child: Text('No recipes found'),
+          return Center(
+            child: Text(ln10!.noRecipesFound),
           );
         } else {
           return ListView.builder(
@@ -175,6 +178,7 @@ class RecipeForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+    final ln10 = AppLocalizations.of(context);
 
     final TextEditingController _titleController = TextEditingController();
     final TextEditingController _authorController = TextEditingController();
@@ -189,8 +193,8 @@ class RecipeForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Add New Recipe',
+            Text(
+              ln10!.addNewRecipe,
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.green,
@@ -198,32 +202,32 @@ class RecipeForm extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             _buildTextField(
-              label: 'Title',
-              hint: 'Enter the title of the recipe',
+              label: ln10.form_title,
+              hint: ln10.form_title_hint,
               controller: _titleController,
               validator: (value) {
                 if (value != null && value.isEmpty) {
-                  return 'Please enter the title of the recipe';
+                  return ln10.form_title_error;
                 }
                 return null;
               },
             ),
             const SizedBox(height: 10),
             _buildTextField(
-              label: 'Author',
-              hint: 'Enter the author of the recipe',
+              label: ln10.form_author,
+              hint: ln10.form_author_hint,
               controller: _authorController,
             ),
             const SizedBox(height: 10),
             _buildTextField(
-              label: 'Image URL',
-              hint: 'Enter the image URL of the recipe',
+              label: ln10.form_image,
+              hint: ln10.form_image_hint,
               controller: _imageController,
             ),
             const SizedBox(height: 10),
             _buildTextField(
-              label: 'Ingredients',
-              hint: 'Enter the ingredients of the recipe',
+              label: ln10.form_ingredients,
+              hint: ln10.form_ingredients_hint,
               controller: _ingredientsController,
             ),
             const SizedBox(height: 10),
@@ -247,8 +251,8 @@ class RecipeForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child: const Text(
-                  'Submit',
+                child: Text(
+                  ln10.form_submit,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

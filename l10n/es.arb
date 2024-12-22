@@ -1,0 +1,21 @@
+{
+  "@@locale": "es",
+  "title": "Libro de Recetas",
+  "home": "Inicio",
+  "favorites": "Favoritos",
+  "steps": "Pasos",
+  "by": "Por",
+  "noRecipesFound": "No se encontraron recetas",
+  "noFavoritesFound": "No se encontraron recetas favoritas",
+  "addNewRecipe": "Agregar nueva receta",
+  "form_title": "Título",
+  "form_title_hint": "Ingrese el título de la receta",
+  "form_title_error": "Por favor, ingrese el título de la receta",
+  "form_author": "Autor",
+  "form_author_hint": "Ingrese el autor de la receta",
+  "form_image": "URL de la imagen",
+  "form_image_hint": "Ingrese la URL de la imagen",
+  "form_ingredients": "Ingredientes",
+  "form_ingredients_hint": "Ingrese los ingredientes de la receta",
+  "form_submit": "Enviar"
+}

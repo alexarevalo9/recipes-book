@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_book/models/recipe_model.dart';
 import 'package:recipe_book/providers/recipes_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RecipeDetail extends StatefulWidget {
   final Recipe recipes;
@@ -55,6 +56,8 @@ class _RecipeDetailState extends State<RecipeDetail>
 
   @override
   Widget build(BuildContext context) {
+    final ln10 = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -103,15 +106,15 @@ class _RecipeDetailState extends State<RecipeDetail>
               const SizedBox(height: 16),
               Center(
                 child: Text(
-                  'By ${widget.recipes.author}',
+                  '${ln10!.by} ${widget.recipes.author}',
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              const Text(
-                'Steps',
+              Text(
+                ln10.steps,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

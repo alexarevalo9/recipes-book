@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:recipe_book/providers/recipes_provider.dart';
 import 'package:recipe_book/screens/favorites_recipes.dart';
 import 'package:recipe_book/screens/home_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,6 +21,16 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => RecipesProvider()),
       ],
       child: const MaterialApp(
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          DefaultMaterialLocalizations.delegate,
+          DefaultWidgetsLocalizations.delegate,
+          DefaultCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         home: RecipeBook(),
       ),
@@ -30,13 +43,14 @@ class RecipeBook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ln10 = AppLocalizations.of(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: const Text(
-            'Recipe Book',
+          title: Text(
+            ln10!.title,
             style: TextStyle(color: Colors.white),
           ),
           bottom: TabBar(
@@ -46,11 +60,11 @@ class RecipeBook extends StatelessWidget {
               tabs: [
                 Tab(
                   icon: Icon(Icons.home),
-                  text: 'Home',
+                  text: ln10.home,
                 ),
                 Tab(
                   icon: Icon(Icons.favorite),
-                  text: 'Favorites',
+                  text: ln10.favorites,
                 ),
               ]),
         ),
