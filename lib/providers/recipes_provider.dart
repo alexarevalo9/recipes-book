@@ -15,7 +15,7 @@ class RecipesProvider extends ChangeNotifier {
     notifyListeners();
 
     final url = Uri.parse(
-      'https://554f-2800-bf0-7f-de4-3fb2-11a0-80c4-8102.ngrok-free.app/recipes',
+      'https://91d0-2800-bf0-7f-de4-3fb2-11a0-80c4-8102.ngrok-free.app/recipes',
     );
 
     try {
@@ -43,7 +43,7 @@ class RecipesProvider extends ChangeNotifier {
 
     try {
       final url = Uri.parse(
-        'https://554f-2800-bf0-7f-de4-3fb2-11a0-80c4-8102.ngrok-free.app/favorites',
+        'https://91d0-2800-bf0-7f-de4-3fb2-11a0-80c4-8102.ngrok-free.app/favorites',
       );
       final response = isFavorite
           ? await http.delete(url, body: json.encode({"id": recipe.id}))
@@ -55,6 +55,8 @@ class RecipesProvider extends ChangeNotifier {
         } else {
           favoriteRecipes.add(recipe);
         }
+
+        ///home/alex/upload-keystore.jks
         notifyListeners();
       } else {
         log('Failed to toggle favorite status ${response.statusCode}');
